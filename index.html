@@ -218,43 +218,54 @@
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 12px;
       margin-top: 12px;
     }
     @media (min-width: 768px) {
       .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 16px;
         margin-top: 16px;
       }
     }
     .gallery-img {
       width: 100%;
-      height: 120px;
-      object-fit: cover;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: contain;
       border-radius: 8px;
+      background: var(--glass);
+      padding: 4px;
       transition: transform 0.3s ease;
     }
     @media (min-width: 768px) {
       .gallery-img {
-        height: 150px;
         border-radius: 12px;
+        padding: 6px;
       }
     }
     .gallery-img:hover {
       transform: scale(1.05);
     }
-    video {
+    .video-container {
       width: 100%;
+      margin-top: 16px;
       border-radius: 8px;
-      margin-top: 12px;
+      overflow: hidden;
+      background: var(--glass);
     }
     @media (min-width: 768px) {
-      video {
+      .video-container {
         border-radius: 12px;
-        margin-top: 16px;
+        margin-top: 20px;
       }
+    }
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      display: block;
     }
     .benefits-grid {
       display: grid;
@@ -443,6 +454,24 @@
         padding: 4px 8px;
         font-size: 11px;
       }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mejoras para imágenes y video */
+    .image-placeholder {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      background: var(--glass);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      border: 1px dashed rgba(255,255,255,0.1);
     }
   </style>
 </head>
@@ -481,25 +510,28 @@
           <p class="muted">Conoce nuestras implementaciones en instituciones educativas</p>
           
           <div class="gallery">
-            <img src="IMG_1727.jpg" alt="Instalación 1" class="gallery-img">
-            <img src="IMG_1729.jpg" alt="Instalación 2" class="gallery-img">
-            <img src="IMG_1730.jpg" alt="Instalación 3" class="gallery-img">
-            <img src="IMG_1731.jpg" alt="Instalación 4" class="gallery-img">
-            <img src="IMG_1732.jpg" alt="Instalación 5" class="gallery-img">
-            <img src="IMG_1733.jpg" alt="Instalación 6" class="gallery-img">
-            <img src="IMG_1734.jpg" alt="Instalación 7" class="gallery-img">
-            <img src="IMG_1735.jpg" alt="Instalación 8" class="gallery-img">
-            <img src="IMG_1737.jpg" alt="Instalación 9" class="gallery-img">
-            <img src="IMG_1738.jpg" alt="Instalación 10" class="gallery-img">
-            <img src="IMG_1739.jpg" alt="Instalación 11" class="gallery-img">
-            <img src="IMG_1740.jpg" alt="Instalación 12" class="gallery-img">
-            <img src="IMG_1742.jpg" alt="Instalación 13" class="gallery-img">
+            <!-- Imágenes con display completo -->
+            <img src="IMG_1727.jpg" alt="Instalación 1" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1729.jpg" alt="Instalación 2" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1730.jpg" alt="Instalación 3" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1731.jpg" alt="Instalación 4" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1732.jpg" alt="Instalación 5" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1733.jpg" alt="Instalación 6" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1734.jpg" alt="Instalación 7" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1735.jpg" alt="Instalación 8" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1737.jpg" alt="Instalación 9" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1738.jpg" alt="Instalación 10" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1739.jpg" alt="Instalación 11" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1740.jpg" alt="Instalación 12" class="gallery-img" onerror="this.style.display='none'">
+            <img src="IMG_1742.jpg" alt="Instalación 13" class="gallery-img" onerror="this.style.display='none'">
           </div>
 
-          <video controls>
-            <source src="copy_148B5B47-D403-4F5E-AD9D-65F0F61F3ADE.mov" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-          </video>
+          <div class="video-container">
+            <video controls>
+              <source src="copy_148B5B47-D403-4F5E-AD9D-65F0F61F3ADE.mov" type="video/mp4">
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
         </section>
 
         <section class="card">
