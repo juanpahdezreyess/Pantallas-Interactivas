@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EduTech Solutions - Pantallas Interactivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e1524;
+      --card: #101a2c;
+      --muted: #9aa4b2;
+      --accent: #3b82f6;
+      --accent-dark: #1d4ed8;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #0b1220 0%, #121d36 60%);
+      color: #e6eef6;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 12px;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 1080px;
+        padding: 24px;
+        margin: 20px auto;
+      }
+    }
+    header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: var(--card);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 480px) {
+      header {
+        flex-direction: row;
+        text-align: left;
+        gap: 16px;
+      }
+    }
+    @media (min-width: 768px) {
+      header {
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        margin-bottom: 24px;
+      }
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    @media (min-width: 480px) {
+      .logo {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        border-radius: 12px;
+      }
+    }
+    @media (min-width: 768px) {
+      .logo {
+        width: 80px;
+        height: 80px;
+        font-size: 28px;
+      }
+    }
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+    @media (min-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+    }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+    p.lead {
+      color: var(--muted);
+      margin: 6px 0 0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    @media (min-width: 480px) {
+      p.lead {
+        font-size: 14px;
+      }
+    }
+    @media (min-width: 768px) {
+      p.lead {
+        margin: 8px 0 20px;
+        font-size: inherit;
+      }
+    }
+    .card {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .card {
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        margin-bottom: 24px;
+      }
+    }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    @media (min-width: 900px) {
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 24px;
+      }
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      color: #fff;
+      line-height: 1.3;
+    }
+    @media (min-width: 480px) {
+      h2 {
+        font-size: 18px;
+      }
+    }
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 20px;
+        margin: 0 0 12px;
+      }
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    @media (min-width: 480px) {
+      .muted {
+        font-size: 14px;
+      }
+    }
+    @media (min-width: 768px) {
+      .muted {
+        font-size: 15px;
+      }
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--glass);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid rgba(59,130,246,0.2);
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-top: 8px;
+    }
+    @media (min-width: 480px) {
+      .badge {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+    @media (min-width: 768px) {
+      .badge {
+        padding: 8px 12px;
+        font-size: inherit;
+        margin-top: 0;
+      }
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+    }
+    .gallery-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    @media (min-width: 768px) {
+      .gallery-img {
+        height: 150px;
+        border-radius: 12px;
+      }
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    video {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+    @media (min-width: 768px) {
+      video {
+        border-radius: 12px;
+        margin-top: 16px;
+      }
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+      }
+    }
+    .benefit-card {
+      background: var(--glass);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (min-width: 768px) {
+      .benefit-card {
+        padding: 20px;
+        border-radius: 12px;
+      }
+    }
+    .price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+    @media (min-width: 768px) {
+      .price {
+        font-size: 28px;
+        margin: 12px 0;
+      }
+    }
+    .contact {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    @media (min-width: 768px) {
+      .contact {
+        gap: 10px;
+        margin-top: 8px;
+      }
+    }
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-weight: 600;
+      color: #fff;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    @media (min-width: 480px) {
+      .pill {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+    }
+    @media (min-width: 768px) {
+      .pill {
+        padding: 8px 14px;
+        font-size: inherit;
+      }
+    }
+    footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+      padding: 0 8px;
+    }
+    @media (min-width: 480px) {
+      footer {
+        font-size: 12px;
+      }
+    }
+    @media (min-width: 768px) {
+      footer {
+        margin-top: 20px;
+        font-size: 13px;
+      }
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+      transition: transform 0.2s;
+      font-size: 13px;
+      width: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    @media (min-width: 480px) {
+      .cta-button {
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+    }
+    @media (min-width: 768px) {
+      .cta-button {
+        padding: 12px 16px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+        font-size: inherit;
+        width: auto;
+      }
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    @media (min-width: 480px) {
+      .card-header {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    ul.muted {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+    ul.muted li {
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    @media (min-width: 768px) {
+      ul.muted {
+        padding-left: 20px;
+        margin-top: 12px;
+      }
+      ul.muted li {
+        margin-bottom: 6px;
+      }
+    }
+    
+    /* Asegurar que todo quede dentro del viewport */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    /* Prevenir desbordamiento horizontal */
+    .container, header, .card, .gallery, .benefits-grid {
+      max-width: 100%;
+    }
+    
+    /* Ajustes específicos para pantallas muy pequeñas */
+    @media (max-width: 360px) {
+      .container {
+        padding: 8px;
+      }
+      header {
+        padding: 12px;
+      }
+      .card {
+        padding: 12px;
+      }
+      h1 {
+        font-size: 18px;
+      }
+      h2 {
+        font-size: 16px;
+      }
+      .pill {
+        padding: 4px 8px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">E</div>
+      <div>
+        <h1>EduTech Solutions - Pantallas Interactivas</h1>
+        <p class="lead">Innovación en la educación a través de la tecnología</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2>Pantalla Interactiva para Colegios</h2>
+              <p class="muted">Llevamos la educación al siguiente nivel con pantallas interactivas que fomentan la participación, la colaboración y el aprendizaje dinámico.</p>
+            </div>
+            <div class="badge">Tecnología Educativa</div>
+          </div>
+          
+          <div class="card" style="background: var(--glass); margin-top: 16px;">
+            <h3>Modelo: IHS2-65SA</h3>
+            <p class="muted">Pantalla interactiva de <strong>65 pulgadas</strong>, perfecta para salones de clase modernos.</p>
+            <p class="muted">Incluye <strong>instalación profesional</strong> y capacitación básica para profesores.</p>
+            <div class="price">$38,999 MXN</div>
+            <button class="cta-button">Solicitar Cotización</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Galería de Instalaciones</h2>
+          <p class="muted">Conoce nuestras implementaciones en instituciones educativas</p>
+          
+          <div class="gallery">
+            <img src="IMG_1727.jpg" alt="Instalación 1" class="gallery-img">
+            <img src="IMG_1729.jpg" alt="Instalación 2" class="gallery-img">
+            <img src="IMG_1730.jpg" alt="Instalación 3" class="gallery-img">
+            <img src="IMG_1731.jpg" alt="Instalación 4" class="gallery-img">
+            <img src="IMG_1732.jpg" alt="Instalación 5" class="gallery-img">
+            <img src="IMG_1733.jpg" alt="Instalación 6" class="gallery-img">
+            <img src="IMG_1734.jpg" alt="Instalación 7" class="gallery-img">
+            <img src="IMG_1735.jpg" alt="Instalación 8" class="gallery-img">
+            <img src="IMG_1737.jpg" alt="Instalación 9" class="gallery-img">
+            <img src="IMG_1738.jpg" alt="Instalación 10" class="gallery-img">
+            <img src="IMG_1739.jpg" alt="Instalación 11" class="gallery-img">
+            <img src="IMG_1740.jpg" alt="Instalación 12" class="gallery-img">
+            <img src="IMG_1742.jpg" alt="Instalación 13" class="gallery-img">
+          </div>
+
+          <video controls>
+            <source src="copy_148B5B47-D403-4F5E-AD9D-65F0F61F3ADE.mov" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </section>
+
+        <section class="card">
+          <h2>Por qué elegirnos</h2>
+          <p class="muted">Ventajas competitivas que nos distinguen en el mercado educativo</p>
+          
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <h3>Instalación Profesional</h3>
+              <p class="muted">Nos encargamos de todo el proceso para que tu pantalla esté lista para usarse el mismo día.</p>
+            </div>
+            
+            <div class="benefit-card">
+              <h3>Soporte Técnico</h3>
+              <p class="muted">Brindamos capacitación y soporte para asegurar que aproveches al máximo tu equipo.</p>
+            </div>
+            
+            <div class="benefit-card">
+              <h3>Calidad Garantizada</h3>
+              <p class="muted">Equipos de la más alta calidad que aseguran durabilidad y rendimiento en el aula.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="toc card">
+        <h2>Información de Contacto</h2>
+        <div class="contact">
+          <div class="pill">📧 Email</div>
+          <div class="pill">📞 Teléfono</div>
+          <div class="pill">🕒 Soporte</div>
+          <div class="pill">🚀 Instalación</div>
+        </div>
+
+        <div style="margin-top: 16px;">
+          <p class="muted"><strong>Email:</strong> contacto@edutechsolutions.com</p>
+          <p class="muted"><strong>Teléfono:</strong> +52 33 2037 0882</p>
+          <p class="muted"><strong>Horario:</strong> Lun-Vie 9:00-18:00</p>
+        </div>
+
+        <button class="cta-button" style="margin-top: 20px;">
+          📞 Contactar Ahora
+        </button>
+      </aside>
+    </div>
+
+    <footer>
+      <p>© 2025 EduTech Solutions - Todos los derechos reservados</p>
+    </footer>
+  </div>
+</body>
+</html>
