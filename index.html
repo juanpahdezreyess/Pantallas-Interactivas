@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EduTech Solutions - Pantallas Interactivas</title>
+  <title>TecnoAula - Tecnología en el Aula</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -15,12 +15,14 @@
   
   <style>
     :root {
-      --bg: #0e1524;
-      --card: #101a2c;
-      --muted: #9aa4b2;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --muted: #94a3b8;
       --accent: #3b82f6;
       --accent-dark: #1d4ed8;
-      --glass: rgba(255, 255, 255, 0.03);
+      --accent-light: #60a5fa;
+      --success: #10b981;
+      --glass: rgba(255, 255, 255, 0.05);
     }
     * {
       box-sizing: border-box;
@@ -29,8 +31,8 @@
     }
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, #0b1220 0%, #121d36 60%);
-      color: #e6eef6;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: #f1f5f9;
       -webkit-font-smoothing: antialiased;
       line-height: 1.5;
       min-height: 100vh;
@@ -58,6 +60,7 @@
       flex-direction: column;
       text-align: center;
       margin-bottom: 16px;
+      border: 1px solid rgba(59, 130, 246, 0.1);
     }
     @media (min-width: 480px) {
       header {
@@ -82,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
       font-size: 20px;
       font-weight: bold;
       color: #fff;
@@ -108,6 +111,10 @@
       font-size: 20px;
       line-height: 1.3;
       word-wrap: break-word;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     @media (min-width: 480px) {
       h1 {
@@ -141,7 +148,7 @@
       padding: 16px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(59, 130, 246, 0.1);
       margin-bottom: 16px;
       overflow: hidden;
     }
@@ -201,10 +208,10 @@
       display: inline-block;
       padding: 5px 8px;
       border-radius: 999px;
-      background: var(--glass);
-      color: var(--accent);
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-light);
       font-weight: 600;
-      border: 1px solid rgba(59,130,246,0.2);
+      border: 1px solid rgba(59, 130, 246, 0.3);
       text-transform: uppercase;
       font-size: 11px;
       margin-top: 8px;
@@ -247,6 +254,7 @@
       /* Precarga visual */
       opacity: 0;
       animation: fadeIn 0.5s ease forwards;
+      border: 1px solid rgba(59, 130, 246, 0.1);
     }
     .gallery-img.loaded {
       opacity: 1;
@@ -259,6 +267,7 @@
     }
     .gallery-img:hover {
       transform: scale(1.05);
+      border-color: rgba(59, 130, 246, 0.3);
     }
     .video-container {
       width: 100%;
@@ -267,6 +276,7 @@
       overflow: hidden;
       background: var(--glass);
       position: relative;
+      border: 1px solid rgba(59, 130, 246, 0.1);
     }
     @media (min-width: 768px) {
       .video-container {
@@ -291,7 +301,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, var(--glass), rgba(59,130,246,0.1));
+      background: linear-gradient(45deg, var(--glass), rgba(59, 130, 246, 0.1));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -319,7 +329,12 @@
       background: var(--glass);
       padding: 16px;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .benefit-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(59, 130, 246, 0.3);
     }
     @media (min-width: 768px) {
       .benefit-card {
@@ -355,9 +370,9 @@
       padding: 5px 10px;
       border-radius: 999px;
       background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(59, 130, 246, 0.2);
       font-weight: 600;
-      color: #fff;
+      color: var(--accent-light);
       font-size: 12px;
       white-space: nowrap;
     }
@@ -400,7 +415,7 @@
       color: #fff;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
       transition: transform 0.2s;
       font-size: 13px;
       width: 100%;
@@ -419,13 +434,14 @@
       .cta-button {
         padding: 12px 16px;
         border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         font-size: inherit;
         width: auto;
       }
     }
     .cta-button:hover {
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
     }
     .card-header {
       display: flex;
@@ -527,17 +543,75 @@
       justify-content: center;
       color: var(--muted);
       font-size: 14px;
-      border: 1px dashed rgba(255,255,255,0.1);
+      border: 1px dashed rgba(59, 130, 246, 0.3);
+    }
+
+    /* Nuevos estilos para la pantalla principal */
+    .main-product {
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .product-image {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      margin: 0 auto 20px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    
+    .spec-item {
+      background: var(--glass);
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    
+    .spec-item:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+    
+    .huawei-logo {
+      color: #ff0000;
+      font-weight: 800;
+      font-size: 1.2em;
+    }
+
+    .discount-badge {
+      background: linear-gradient(135deg, var(--success), #059669);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .school-theme {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="logo">E</div>
+      <div class="logo">T</div>
       <div>
-        <h1>EduTech Solutions - Pantallas Interactivas</h1>
-        <p class="lead">Innovación en la educación a través de la tecnología</p>
+        <h1>TecnoAula - Tecnología en el Aula</h1>
+        <p class="lead">Transformando la educación con soluciones tecnológicas innovadoras</p>
       </div>
     </header>
 
@@ -546,23 +620,55 @@
         <section class="card">
           <div class="card-header">
             <div>
-              <h2>Pantalla Interactiva para Colegios</h2>
-              <p class="muted">Llevamos la educación al siguiente nivel con pantallas interactivas que fomentan la participación, la colaboración y el aprendizaje dinámico.</p>
+              <h2>Pantalla Interactiva <span class="huawei-logo">HUAWEI IdeaHub Board 3 PRO</span></h2>
+              <p class="muted">La solución definitiva para aulas inteligentes y colaboración educativa avanzada</p>
             </div>
             <div class="badge">Tecnología Educativa</div>
           </div>
           
+          <!-- Imagen principal de la pantalla -->
+          <div class="main-product">
+            <img src="Captura de pantalla 2025-10-01 a las 8.56.21.png" alt="HUAWEI IdeaHub Board 3 PRO - Pantalla Interactiva" class="product-image" loading="eager">
+          </div>
+          
+          <div class="specs-grid">
+            <div class="spec-item">
+              <h3>🎓 Pantalla 4K Ultra HD</h3>
+              <p class="muted">65 pulgadas con protección anti-azul y ajuste automático de brillo</p>
+            </div>
+            <div class="spec-item">
+              <h3>⚡ Procesador 8 Núcleos</h3>
+              <p class="muted">Alto rendimiento para aplicaciones educativas simultáneas</p>
+            </div>
+            <div class="spec-item">
+              <h3>📚 Wi-Fi 6</h3>
+              <p class="muted">Comparte contenido en 4K sin interrupciones</p>
+            </div>
+            <div class="spec-item">
+              <h3>✏️ Escritura Inteligente</h3>
+              <p class="muted">Latencia ultrabaja de 16ms con predicción por IA</p>
+            </div>
+          </div>
+          
           <div class="card" style="background: var(--glass); margin-top: 16px;">
-            <h3>Modelo: IHS2-65SA</h3>
-            <p class="muted">Pantalla interactiva de <strong>65 pulgadas</strong>, perfecta para salones de clase modernos.</p>
-            <p class="muted">Incluye <strong>instalación profesional</strong> y capacitación básica para profesores.</p>
-            <div class="price">$38,999 MXN</div>
-            <button class="cta-button">Solicitar Cotización</button>
+            <h3 class="school-theme">Características Principales</h3>
+            <ul class="muted">
+              <li>Pantalla táctil de 65" con resolución 4K UHD</li>
+              <li>Sistema operativo Harmony OS integrado</li>
+              <li>Marco ultra-estrecho para máxima área útil</li>
+              <li>Conectividad Wi-Fi 6 y Bluetooth 5.0</li>
+              <li>20 puntos táctiles simultáneos</li>
+              <li>Protección ocular con reducción de luz azul</li>
+              <li>Compatibilidad con múltiples dispositivos</li>
+            </ul>
+            <div class="price">$38,999 MXN <span class="discount-badge">30% OFF</span></div>
+            <p class="muted" style="color: var(--success); font-weight: 600;">¡Precio especial para instituciones educativas!</p>
+            <button class="cta-button">🎓 Solicitar Cotización Educativa</button>
           </div>
         </section>
 
         <section class="card">
-          <h2>Galería de Instalaciones</h2>
+          <h2 class="school-theme">Galería de Instalaciones</h2>
           <p class="muted">Conoce nuestras implementaciones en instituciones educativas</p>
           
           <div class="gallery">
@@ -585,7 +691,7 @@
           <div class="video-container">
             <div class="video-placeholder" id="videoPlaceholder">
               <span class="loading-spinner"></span>
-              Cargando video...
+              Cargando video demostrativo...
             </div>
             <video preload="auto" controls oncanplay="this.classList.add('loaded'); document.getElementById('videoPlaceholder').classList.add('hidden')">
               <source src="copy_148B5B47-D403-4F5E-AD9D-65F0F61F3ADE.mov" type="video/mp4">
@@ -595,51 +701,63 @@
         </section>
 
         <section class="card">
-          <h2>Por qué elegirnos</h2>
-          <p class="muted">Ventajas competitivas que nos distinguen en el mercado educativo</p>
+          <h2 class="school-theme">Beneficios Educativos</h2>
+          <p class="muted">Ventajas que hacen la diferencia en el aula moderna</p>
           
           <div class="benefits-grid">
             <div class="benefit-card">
-              <h3>Instalación Profesional</h3>
-              <p class="muted">Nos encargamos de todo el proceso para que tu pantalla esté lista para usarse el mismo día.</p>
+              <h3>🏫 Instalación en Aula</h3>
+              <p class="muted">Instalación completa y configuración inicial incluida en tu institución</p>
             </div>
             
             <div class="benefit-card">
-              <h3>Soporte Técnico</h3>
-              <p class="muted">Brindamos capacitación y soporte para asegurar que aproveches al máximo tu equipo.</p>
+              <h3>👨‍🏫 Capacitación Docente</h3>
+              <p class="muted">Entrenamiento especializado para profesores y personal académico</p>
             </div>
             
             <div class="benefit-card">
-              <h3>Calidad Garantizada</h3>
-              <p class="muted">Equipos de la más alta calidad que aseguran durabilidad y rendimiento en el aula.</p>
+              <h3>📊 Soporte Educativo</h3>
+              <p class="muted">3 años de garantía con soporte técnico especializado para escuelas</p>
             </div>
           </div>
         </section>
       </main>
 
       <aside class="toc card">
-        <h2>Información de Contacto</h2>
+        <h2 class="school-theme">Información de Contacto</h2>
         <div class="contact">
           <div class="pill">📧 Email</div>
           <div class="pill">📞 Teléfono</div>
-          <div class="pill">🕒 Soporte</div>
+          <div class="pill">🏫 Soporte</div>
           <div class="pill">🚀 Instalación</div>
         </div>
 
         <div style="margin-top: 16px;">
-          <p class="muted"><strong>Email:</strong> contacto@edutechsolutions.com</p>
+          <p class="muted"><strong>Email:</strong> contacto@tecnoaula.com</p>
           <p class="muted"><strong>Teléfono:</strong> +52 33 2037 0882</p>
-          <p class="muted"><strong>Horario:</strong> Lun-Vie 9:00-18:00</p>
+          <p class="muted"><strong>Horario:</strong> Lun-Vie 8:00-17:00</p>
+          <p class="muted"><strong>Instalación:</strong> Incluida en precio</p>
         </div>
 
         <button class="cta-button" style="margin-top: 20px;">
-          📞 Contactar Ahora
+          🎓 Contactar para Educación
         </button>
+
+        <div style="margin-top: 20px; padding: 16px; background: var(--glass); border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.1);">
+          <h3 class="school-theme">📦 Incluye para Escuelas:</h3>
+          <ul class="muted" style="margin-top: 8px;">
+            <li>Pantalla Huawei IdeaHub Board 3 PRO</li>
+            <li>Soporte mural profesional</li>
+            <li>Instalación y configuración en aula</li>
+            <li>Capacitación para profesores</li>
+            <li>Garantía 3 años educativa</li>
+          </ul>
+        </div>
       </aside>
     </div>
 
     <footer>
-      <p>© 2025 EduTech Solutions - Todos los derechos reservados</p>
+      <p>© 2025 TecnoAula - Tecnología en el Aula - Distribuidor Autorizado Huawei - Todos los derechos reservados</p>
     </footer>
   </div>
 
@@ -648,9 +766,9 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Precarga de imágenes críticas
       const criticalImages = [
+        'Captura de pantalla 2025-10-01 a las 8.56.21.png',
         'IMG_1727.jpg',
-        'IMG_1729.jpg', 
-        'IMG_1730.jpg'
+        'IMG_1729.jpg'
       ];
       
       criticalImages.forEach(src => {
@@ -666,7 +784,7 @@
       }
 
       // Forzar carga de todas las imágenes
-      const images = document.querySelectorAll('.gallery-img');
+      const images = document.querySelectorAll('.gallery-img, .product-image');
       images.forEach(img => {
         if (img.complete) {
           img.classList.add('loaded');
@@ -679,11 +797,23 @@
 
     // Fallback para imágenes que no cargan
     window.addEventListener('load', function() {
-      const images = document.querySelectorAll('.gallery-img');
+      const images = document.querySelectorAll('.gallery-img, .product-image');
       images.forEach(img => {
         if (!img.complete || img.naturalHeight === 0) {
           img.style.display = 'none';
+          // Crear placeholder
+          const placeholder = document.createElement('div');
+          placeholder.className = 'image-placeholder';
+          placeholder.textContent = 'Imagen no disponible';
+          img.parentNode.insertBefore(placeholder, img);
         }
+      });
+    });
+
+    // Interactividad para botones CTA
+    document.querySelectorAll('.cta-button').forEach(button => {
+      button.addEventListener('click', function() {
+        alert('¡Gracias por su interés en TecnoAula! Un asesor educativo se comunicará con usted para personalizar su solución.');
       });
     });
   </script>
